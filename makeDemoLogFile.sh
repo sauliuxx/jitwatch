@@ -55,7 +55,7 @@ export tiered="-XX:+TieredCompilation"
 # Disable compressed oops (makes assembly easier to read)
 export nocompressedoops="-XX:-UseCompressedOops"
 
-export OPTIONAL_SWITCHES="$notiered $assembly $nocompressedoops"
+export OPTIONAL_SWITCHES="$assembly $nocompressedoops"
 
 unamestr=`uname`
 
@@ -75,7 +75,8 @@ echo "VM Switches $REQUIRED_SWITCHES $OPTIONAL_SWITCHES"
 
 echo "Building example HotSpot log"
 
-CLASSPATH=target/classes
+CLASSPATH=$CLASSPATH:core/target/classes
+CLASSPATH=$CLASSPATH:ui/target/classes
 CLASSPATH=$CLASSPATH:lib/logback-classic-1.1.2.jar
 CLASSPATH=$CLASSPATH:lib/logback-core-1.1.2.jar
 CLASSPATH=$CLASSPATH:lib/slf4j-api-1.7.7.jar

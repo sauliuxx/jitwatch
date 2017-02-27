@@ -55,7 +55,7 @@ set tiered=-XX:+TieredCompilation
 rem Disable compressed oops (makes assembly easier to read)
 set nocompressedoops=-XX:-UseCompressedOops
 
-set OPTIONAL_SWITCHES=%notiered% %assembly%
+set OPTIONAL_SWITCHES=%assembly%
 
 "%JAVA_HOME%\bin\java" -version
 
@@ -63,7 +63,8 @@ echo "VM Switches %REQUIRED_SWITCHES% %OPTIONAL_SWITCHES%"
 
 echo "Building example HotSpot log"
 
-set CLASSPATH=target\classes
+set CLASSPATH=core\target\classes
+set CLASSPATH=ui\target\classes
 set CLASSPATH=%CLASSPATH%;lib\logback-classic-1.1.2.jar
 set CLASSPATH=%CLASSPATH%;lib\logback-core-1.1.2.jar
 set CLASSPATH=%CLASSPATH%;lib\slf4j-api-1.7.7.jar
